@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AR Lungs Viewer</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
   <style>
     body {
       margin: 0;
+      font-family: Arial, sans-serif;
     }
     model-viewer {
       width: 100%;
@@ -17,14 +18,32 @@
 </head>
 <body>
   <model-viewer 
-    src="asthama.glb" 
-    ios-src="asthama.usdz"
-    ar 
-    ar-modes="webxr scene-viewer quick-look" 
-    camera-controls 
-    autoplay 
-    animation-name="default" 
-    exposure="1">
+    src="asthama.glb"                 <!-- Path to your .glb model -->
+    ios-src="asthama.usdz"           <!-- Path to your .usdz model for iOS -->
+    ar                               <!-- Enable AR mode -->
+    ar-modes="webxr scene-viewer quick-look" <!-- Multiple AR modes -->
+    camera-controls                 <!-- Allow user to control camera -->
+    autoplay                        <!-- Auto-play animations -->
+    animation-name="default"        <!-- Specify animation name if needed -->
+    exposure="1"                    <!-- Control brightness -->
+    environment-image="neutral"     <!-- Use an HDR environment for lighting -->
+    shadow-intensity="1"            <!-- Add shadows for realism -->
+    shadow-softness="0.5"           <!-- Soften shadows -->
+    alt="A 3D model of human lungs" <!-- Alt text for accessibility -->
+    skybox-image=""
+    style="background-color: #f0f0f0;"> <!-- Optional background color -->
   </model-viewer>
+
+  <script>
+    // Validate that the model loads successfully
+    const modelViewer = document.querySelector("model-viewer");
+    modelViewer.addEventListener("load", () => {
+      console.log("Model loaded successfully.");
+    });
+
+    modelViewer.addEventListener("error", (event) => {
+      console.error("Error loading model:", event.detail);
+    });
+  </script>
 </body>
 </html>
