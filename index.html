@@ -11,6 +11,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
     }
     h1 {
       margin: 0;
@@ -18,18 +19,34 @@
       background-color: #f4f4f4;
       width: 100%;
       text-align: center;
-      font-family: "Helvetica Neue", Arial, sans-serif; /* Font set to Helvetica Neue */
-      font-weight: 900; /* Black weight for Helvetica Neue */
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-weight: 900;
       font-size: 24px;
       color: black;
     }
     model-viewer {
       width: 100%;
-      height: calc(100vh - 50px); /* Adjust height to leave space for the title */
+      height: calc(100vh - 50px);
+    }
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+    }
+    .back-button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
+  <a href="https://manobalproduction.github.io/Lungs_AR/" class="back-button">Back</a>
   <h1>ASTHMA</h1>
   <model-viewer 
     src="asthama.glb" 
